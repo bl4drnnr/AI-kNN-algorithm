@@ -42,3 +42,7 @@ def Minkowski(learnCase, testCase):
     #         abs(learnCase['SW'] - testCase['SW']) ** 3 +
     #         abs(learnCase['PL'] - testCase['PL']) ** 3 +
     #         abs(learnCase['PW'] - testCase['PW']) ** 3) ** (1 / 3)
+
+
+def printResult(typeOfResult, data):
+    return
