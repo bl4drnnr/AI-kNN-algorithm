@@ -1,11 +1,14 @@
-from parser import getQuantityOfDecisionClasses
+from parser import getQuantityOfDecisionClasses, getKeyAttribute
+
+KEY_ATTRIBUTE = getKeyAttribute()
 
 
 def Euklid(learnCase, testCase):
     result = 0
 
     for key, value in learnCase.items():
-        result += (learnCase[key] - testCase[key]) ** 2
+        if key != KEY_ATTRIBUTE:
+            result += (learnCase[key] - testCase[key]) ** 2
 
     return result ** 0.5
 
@@ -19,7 +22,8 @@ def CityBlock(learnCase, testCase):
     result = 0
 
     for key, value in learnCase.items():
-        result += abs(learnCase[key] - testCase[key])
+        if key != KEY_ATTRIBUTE:
+            result += abs(learnCase[key] - testCase[key])
 
     return result
 
@@ -34,7 +38,8 @@ def Minkowski(learnCase, testCase):
     q = getQuantityOfDecisionClasses()
 
     for key, value in learnCase.items():
-        result += abs(learnCase[key] - testCase[key]) ** q
+        if key != KEY_ATTRIBUTE:
+            result += abs(learnCase[key] - testCase[key]) ** q
 
     return result ** (1/q)
 

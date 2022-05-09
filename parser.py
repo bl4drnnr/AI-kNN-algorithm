@@ -17,6 +17,10 @@ def getTestData():
     return TEST_DATA
 
 
+def getKeyAttribute():
+    return list(TEST_DATA[0])[-1]
+
+
 def getQuantityOfDecisionClasses():
     decisionClasses = {}
 
