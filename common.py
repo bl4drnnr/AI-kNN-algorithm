@@ -8,6 +8,7 @@ def Euklid(learnCase, testCase):
         result += (learnCase[key] - testCase[key]) ** 2
 
     return result ** 0.5
+
     # return ((learnCase['SL'] - testCase['SL']) ** 2 +
     #         (learnCase['SW'] - testCase['SW']) ** 2 +
     #         (learnCase['PL'] - testCase['PL']) ** 2 +
@@ -36,6 +37,7 @@ def Minkowski(learnCase, testCase):
         result += abs(learnCase[key] - testCase[key]) ** q
 
     return result ** (1/q)
+
     # return (abs(learnCase['SL'] - testCase['SL']) ** 3 +
     #         abs(learnCase['SW'] - testCase['SW']) ** 3 +
     #         abs(learnCase['PL'] - testCase['PL']) ** 3 +
