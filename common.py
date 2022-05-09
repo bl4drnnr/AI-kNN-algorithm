@@ -10,7 +10,7 @@ def Euklid(learnCase, testCase):
         if key != KEY_ATTRIBUTE:
             result += (learnCase[key] - testCase[key]) ** 2
 
-    return result ** 0.5
+    return format(result ** 0.5, ".3f")
 
     # return ((learnCase['SL'] - testCase['SL']) ** 2 +
     #         (learnCase['SW'] - testCase['SW']) ** 2 +
@@ -25,7 +25,7 @@ def CityBlock(learnCase, testCase):
         if key != KEY_ATTRIBUTE:
             result += abs(learnCase[key] - testCase[key])
 
-    return result
+    return format(result, ".3f")
 
     # return abs(learnCase['SL'] - testCase['SL']) + \
     #        abs(learnCase['SW'] - testCase['SW']) + \
@@ -41,7 +41,7 @@ def Minkowski(learnCase, testCase):
         if key != KEY_ATTRIBUTE:
             result += abs(learnCase[key] - testCase[key]) ** q
 
-    return result ** (1/q)
+    return format(result ** (1/q), ".3f")
 
     # return (abs(learnCase['SL'] - testCase['SL']) ** 3 +
     #         abs(learnCase['SW'] - testCase['SW']) ** 3 +

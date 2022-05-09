@@ -13,8 +13,8 @@ for testItem in TEST_DATA:
     for learnItem in LEARN_DATA:
         DATA_WITH_METRICS.append(
             {**learnItem,
-             'EU': CityBlock(learnItem, testItem),
-             'CB': Euklid(learnItem, testItem),
+             'EU': Euklid(learnItem, testItem),
+             'CB': CityBlock(learnItem, testItem),
              'M3': Minkowski(learnItem, testItem)
              })
     # Then, I need to sort this data by type
