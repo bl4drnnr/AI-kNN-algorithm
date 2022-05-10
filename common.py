@@ -63,4 +63,5 @@ def sumOfReciprocalOfTheSquaresOfDistances(records):
 
 
 def printResult(typeOfResult, data):
-    return
+    for res in data:
+        print(res)

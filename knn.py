@@ -11,6 +11,7 @@ CB = []
 M3 = []
 
 for testItem in TEST_DATA:
+    resEU = []
     for learnItem in LEARN_DATA:
         DATA_WITH_METRICS.append(
             {**learnItem,
@@ -34,6 +35,10 @@ for testItem in TEST_DATA:
             if recordFromTop != testItem[KEY_ATTRIBUTE]:
                 useAdditionalMetrics = True
 
+        if not useAdditionalMetrics:
+            resEU.append(1)
+        else:
+            resEU.append(2)
         # normalElectionEU = normalElection(sortedEU[:i])
         # distanceSumElectionEU = distanceSumElection(sortedEU[:i])
         # sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i])
@@ -46,11 +51,11 @@ for testItem in TEST_DATA:
         # distanceSumElectionM3 = distanceSumElection(sortedM3[:i])
         # sumOfReciprocalM3 = sumOfReciprocalOfTheSquaresOfDistances(sortedM3[:i])
         # print('-------')
-
+    EU.append(resEU)
     DATA_WITH_METRICS = []
 
     # And push it to EU, CB, M3
 
 printResult('Euklid', EU)
-printResult('City block', CB)
-printResult('Minkowski', M3)
+# printResult('City block', CB)
+# printResult('Minkowski', M3)
