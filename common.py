@@ -38,10 +38,15 @@ def normalElection(records):
     results = []
 
     for record in records:
-        if results.append(record[KEY_ATTRIBUTE]) not in results:
-            results.append(record[KEY_ATTRIBUTE])
+        results.append(record[KEY_ATTRIBUTE])
 
-    return results
+    resultsSet = set(results)
+    print(resultsSet)
+    if len(resultsSet) == 1:
+        return True
+    else:
+        # @TODO Here need to find our if I really can set true of false
+        return False
 
 
 def distanceSumElection(records):
@@ -53,8 +58,8 @@ def distanceSumElection(records):
         else:
             typesOfDecisions[record[KEY_ATTRIBUTE]].append(float(record['CB']))
 
-    for key, value in typesOfDecisions.items():
-        print(key, value)
+    # for key, value in typesOfDecisions.items():
+    #     print(key, value)
     return
 
 
