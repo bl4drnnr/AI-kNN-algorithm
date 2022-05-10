@@ -41,7 +41,7 @@ def normalElection(records, testRecord):
         results.append(record[KEY_ATTRIBUTE])
 
     resultsSet = set(results)
-    print(resultsSet)
+
     if len(resultsSet) == 1:
         return True
     else:

@@ -44,17 +44,17 @@ for testItem in TEST_DATA:
             EU['normalElection'].append(1)
         else:
             EU['normalElection'].append(0)
-        distanceSumElectionEU = distanceSumElection(sortedEU[:i])
-        if distanceSumElectionEU:
-            EU['distanceSumElection'].append(1)
-        else:
-            EU['distanceSumElection'].append(0)
-        sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i])
-        if sumOfReciprocalEU:
-            EU['sumOfReciprocal'].append(1)
-        else:
-            EU['sumOfReciprocal'].append(0)
-    print('--------')
+        # distanceSumElectionEU = distanceSumElection(sortedEU[:i])
+        # if distanceSumElectionEU:
+        #     EU['distanceSumElection'].append(1)
+        # else:
+        #     EU['distanceSumElection'].append(0)
+        # sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i])
+        # if sumOfReciprocalEU:
+        #     EU['sumOfReciprocal'].append(1)
+        # else:
+        #     EU['sumOfReciprocal'].append(0)
+        #
         # normalElectionCB = normalElection(sortedCB[:i])
         # if normalElectionCB:
         #     CB['normalElection'].append(1)
