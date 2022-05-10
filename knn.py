@@ -39,7 +39,7 @@ for testItem in TEST_DATA:
     # Get 1/3/5 from top
     # @TODO Fix duplicates lines
     for i in range(1, 6, 2):
-        normalElectionEU = normalElection(sortedEU[:i])
+        normalElectionEU = normalElection(sortedEU[:i], testItem)
         if normalElectionEU:
             EU['normalElection'].append(1)
         else:

@@ -34,7 +34,7 @@ def Minkowski(learnCase, testCase):
     return format(result ** (1/q), ".3f")
 
 
-def normalElection(records):
+def normalElection(records, testRecord):
     results = []
 
     for record in records:
@@ -45,8 +45,25 @@ def normalElection(records):
     if len(resultsSet) == 1:
         return True
     else:
-        # @TODO Here need to find our if I really can set true of false
-        return False
+        decisionClasses = {}
+        checkIfCorrectRecord = False
+        maxValue = 0
+
+        for item in results:
+            if decisionClasses.get(item) is None:
+                decisionClasses[item] = 1
+            else:
+                decisionClasses[item] += 1
+        for key, value in decisionClasses.items():
+            if maxValue < value:
+                maxValue = value
+        for key, value in decisionClasses.items():
+            if value == maxValue and key == testRecord[KEY_ATTRIBUTE]:
+                checkIfCorrectRecord = True
+        if checkIfCorrectRecord:
+            return True
+        else:
+            return False
 
 
 def distanceSumElection(records):
