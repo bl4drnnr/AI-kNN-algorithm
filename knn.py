@@ -25,8 +25,15 @@ for testItem in TEST_DATA:
     # Get 1/3/5 from top
     for i in range(1, 6, 2):
         recordsFromTop = []
+        useAdditionalMetrics = False
+
         for item in sortedEU[:i]:
             recordsFromTop.append(item[KEY_ATTRIBUTE])
+
+        for recordFromTop in recordsFromTop:
+            if recordFromTop != testItem[KEY_ATTRIBUTE]:
+                useAdditionalMetrics = True
+
         # normalElectionEU = normalElection(sortedEU[:i])
         # distanceSumElectionEU = distanceSumElection(sortedEU[:i])
         # sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i])
