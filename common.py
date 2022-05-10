@@ -35,7 +35,11 @@ def Minkowski(learnCase, testCase):
 
 
 def normalElection(records):
-    return
+    results = []
+    for record in records:
+        if results.append(record[KEY_ATTRIBUTE]) not in results:
+            results.append(record[KEY_ATTRIBUTE])
+    return results
 
 
 def distanceSumElection(records):
