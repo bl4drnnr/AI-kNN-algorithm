@@ -1,9 +1,10 @@
 from common import CityBlock, Euklid, Minkowski, printResult, normalElection, distanceSumElection, sumOfReciprocalOfTheSquaresOfDistances
-from parser import getLearnData, getTestData
+from parser import getLearnData, getTestData, getKeyAttribute
 
 LEARN_DATA = getLearnData()
 TEST_DATA = getTestData()
 DATA_WITH_METRICS = []
+KEY_ATTRIBUTE = getKeyAttribute()
 
 EU = []
 CB = []
@@ -23,18 +24,21 @@ for testItem in TEST_DATA:
     sortedM3 = sorted(DATA_WITH_METRICS, key=lambda z: z['M3'], reverse=False)
     # Get 1/3/5 from top
     for i in range(1, 6, 2):
-        normalElectionEU = normalElection(sortedEU[:i])
-        distanceSumElectionEU = distanceSumElection(sortedEU[:i])
-        sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i])
-
-        normalElectionCB = normalElection(sortedCB[:i])
-        distanceSumElectionCB = distanceSumElection(sortedCB[:i])
-        sumOfReciprocalCB = sumOfReciprocalOfTheSquaresOfDistances(sortedCB[:i])
-
-        normalElectionM3 = normalElection(sortedM3[:i])
-        distanceSumElectionM3 = distanceSumElection(sortedM3[:i])
-        sumOfReciprocalM3 = sumOfReciprocalOfTheSquaresOfDistances(sortedM3[:i])
-        print('-------')
+        recordsFromTop = []
+        for item in sortedEU[:i]:
+            recordsFromTop.append(item[KEY_ATTRIBUTE])
+        # normalElectionEU = normalElection(sortedEU[:i])
+        # distanceSumElectionEU = distanceSumElection(sortedEU[:i])
+        # sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i])
+        #
+        # normalElectionCB = normalElection(sortedCB[:i])
+        # distanceSumElectionCB = distanceSumElection(sortedCB[:i])
+        # sumOfReciprocalCB = sumOfReciprocalOfTheSquaresOfDistances(sortedCB[:i])
+        #
+        # normalElectionM3 = normalElection(sortedM3[:i])
+        # distanceSumElectionM3 = distanceSumElection(sortedM3[:i])
+        # sumOfReciprocalM3 = sumOfReciprocalOfTheSquaresOfDistances(sortedM3[:i])
+        # print('-------')
 
     DATA_WITH_METRICS = []
 
