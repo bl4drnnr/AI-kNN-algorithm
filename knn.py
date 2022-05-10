@@ -55,12 +55,32 @@ for testItem in TEST_DATA:
             EU['sumOfReciprocal'].append(0)
 
         normalElectionCB = normalElection(sortedCB[:i])
+        if normalElectionCB:
+            CB['normalElection'].append(1)
+        else:
+            CB['normalElection'].append(0)
         distanceSumElectionCB = distanceSumElection(sortedCB[:i])
+        if distanceSumElectionCB:
+            CB['distanceSumElection'].append(1)
+        else:
+            CB['distanceSumElection'].append(0)
         sumOfReciprocalCB = sumOfReciprocalOfTheSquaresOfDistances(sortedCB[:i])
 
         normalElectionM3 = normalElection(sortedM3[:i])
+        if normalElectionM3:
+            M3['normalElection'].append(1)
+        else:
+            M3['normalElection'].append(0)
         distanceSumElectionM3 = distanceSumElection(sortedM3[:i])
-        sumOfReciprocalM3 = sumOfReciprocalOfTheSquaresOfDistances(sortedM3[:i])
+        if distanceSumElectionM3:
+            M3['distanceSumElection'].append(1)
+        else:
+            M3['distanceSumElection'].append(0)
+        normalElectionM3 = sumOfReciprocalOfTheSquaresOfDistances(sortedM3[:i])
+        if normalElectionM3:
+            M3['sumOfReciprocal'].append(1)
+        else:
+            M3['sumOfReciprocal'].append(0)
     DATA_WITH_METRICS = []
 
 
