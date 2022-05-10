@@ -34,5 +34,17 @@ def Minkowski(learnCase, testCase):
     return format(result ** (1/q), ".3f")
 
 
+def normalElection(records):
+    return
+
+
+def distanceSumElection(records):
+    return
+
+
+def sumOfReciprocalOfTheSquaresOfDistances(records):
+    return
+
+
 def printResult(typeOfResult, data):
     return
