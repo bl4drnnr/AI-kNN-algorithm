@@ -34,6 +34,7 @@ for testItem in TEST_DATA:
         normalElectionM3 = normalElection(sortedM3[:i])
         distanceSumElectionM3 = distanceSumElection(sortedM3[:i])
         sumOfReciprocalM3 = sumOfReciprocalOfTheSquaresOfDistances(sortedM3[:i])
+        print('-------')
 
     DATA_WITH_METRICS = []
 

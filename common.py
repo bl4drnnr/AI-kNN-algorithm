@@ -36,13 +36,25 @@ def Minkowski(learnCase, testCase):
 
 def normalElection(records):
     results = []
+
     for record in records:
         if results.append(record[KEY_ATTRIBUTE]) not in results:
             results.append(record[KEY_ATTRIBUTE])
+
     return results
 
 
 def distanceSumElection(records):
+    typesOfDecisions = {}
+
+    for record in records:
+        if typesOfDecisions.get(record[KEY_ATTRIBUTE]) is None:
+            typesOfDecisions[record[KEY_ATTRIBUTE]] = [float(record['CB'])]
+        else:
+            typesOfDecisions[record[KEY_ATTRIBUTE]].append(float(record['CB']))
+
+    for key, value in typesOfDecisions.items():
+        print(key, value)
     return
 
 
