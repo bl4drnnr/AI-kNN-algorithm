@@ -37,6 +37,7 @@ for testItem in TEST_DATA:
     sortedCB = sorted(DATA_WITH_METRICS, key=lambda y: y['CB'], reverse=False)
     sortedM3 = sorted(DATA_WITH_METRICS, key=lambda z: z['M3'], reverse=False)
     # Get 1/3/5 from top
+    # TODO Fix duplicates lines
     for i in range(1, 6, 2):
         normalElectionEU = normalElection(sortedEU[:i])
         if normalElectionEU:
