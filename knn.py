@@ -55,11 +55,11 @@ for testItem in TEST_DATA:
         # else:
         #     EU['sumOfReciprocal'].append(0)
         #
-        # normalElectionCB = normalElection(sortedCB[:i])
-        # if normalElectionCB:
-        #     CB['normalElection'].append(1)
-        # else:
-        #     CB['normalElection'].append(0)
+        normalElectionCB = normalElection(sortedCB[:i], testItem)
+        if normalElectionCB:
+            CB['normalElection'].append(1)
+        else:
+            CB['normalElection'].append(0)
         # distanceSumElectionCB = distanceSumElection(sortedCB[:i])
         # if distanceSumElectionCB:
         #     CB['distanceSumElection'].append(1)
@@ -67,11 +67,11 @@ for testItem in TEST_DATA:
         #     CB['distanceSumElection'].append(0)
         # sumOfReciprocalCB = sumOfReciprocalOfTheSquaresOfDistances(sortedCB[:i])
         #
-        # normalElectionM3 = normalElection(sortedM3[:i])
-        # if normalElectionM3:
-        #     M3['normalElection'].append(1)
-        # else:
-        #     M3['normalElection'].append(0)
+        normalElectionM3 = normalElection(sortedM3[:i], testItem)
+        if normalElectionM3:
+            M3['normalElection'].append(1)
+        else:
+            M3['normalElection'].append(0)
         # distanceSumElectionM3 = distanceSumElection(sortedM3[:i])
         # if distanceSumElectionM3:
         #     M3['distanceSumElection'].append(1)
@@ -86,5 +86,5 @@ for testItem in TEST_DATA:
 
 
 printResult('Euklid', EU)
-# printResult('City block', CB)
-# printResult('Minkowski', M3)
+printResult('City block', CB)
+printResult('Minkowski', M3)
