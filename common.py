@@ -64,24 +64,26 @@ def sumOfReciprocalOfTheSquaresOfDistances(records):
 
 def printResult(typeOfResult, data):
     print("Type of metric: " + typeOfResult)
-    for x, res in enumerate(data):
+    for item, value in data.items():
+        print('Election method: ' + item)
+        for x, res in enumerate(value):
 
-        if x == 0:
-            print('------------------')
-            print('|1\t\t3\t\t5|')
-            print('------------------')
+            if x == 0:
+                print('------------------')
+                print('|1\t\t3\t\t5|')
+                print('------------------')
 
-        resultString = ""
+            resultString = ""
 
-        for y, rec in enumerate(res):
-            if y == 0:
-                resultString += "|" + str(rec) + "\t\t"
-            elif y == len(res) - 1:
-                resultString += str(rec) + "|"
-            else:
-                resultString += str(rec) + "\t\t"
+            for y, rec in enumerate(res):
+                if y == 0:
+                    resultString += "|" + str(rec) + "\t\t"
+                elif y == len(res) - 1:
+                    resultString += str(rec) + "|"
+                else:
+                    resultString += str(rec) + "\t\t"
 
-        print(resultString)
+            print(resultString)
 
-        if x == len(data) - 1:
-            print('------------------')
+            if x == len(data) - 1:
+                print('------------------')
