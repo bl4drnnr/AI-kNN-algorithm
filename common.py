@@ -66,7 +66,7 @@ def normalElection(records, testRecord):
             return False
 
 
-def distanceSumElection(records):
+def distanceSumElection(records, testRecord):
     typesOfDecisions = {}
 
     for record in records:
@@ -80,7 +80,7 @@ def distanceSumElection(records):
     return
 
 
-def sumOfReciprocalOfTheSquaresOfDistances(records):
+def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord):
     return
 
 
