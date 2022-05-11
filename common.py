@@ -117,21 +117,20 @@ def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord, metric):
         return True
     else:
         tempTypesOfDecisions = {}
-        average = {'value': 0, 'count': 0}
+        average = 0
 
         for key, value in typesOfDecisions.items():
             for val in value:
-                average['value'] += val
-                average['count'] += 1
+                average += 1/(val ** 2)
                 if tempTypesOfDecisions.get(str(key) + "_sq") is None:
                     tempTypesOfDecisions[str(key) + "_sq"] = 1/(val ** 2)
                 else:
                     tempTypesOfDecisions[str(key) + "_sq"] += 1/(val ** 2)
 
-        typesOfDecisions['average'] = average['value'] / average['count']
-
         for key, value in tempTypesOfDecisions.items():
             typesOfDecisions[key] = value
+
+        typesOfDecisions['average'] = average
 
         minDistances = {'minDistances': [], 'minDistance': None, 'minDistanceClass': None}
 
