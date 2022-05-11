@@ -117,18 +117,39 @@ def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord, metric):
         return True
     else:
         tempTypesOfDecisions = {}
+        average = {'value': 0, 'count': 0}
 
         for key, value in typesOfDecisions.items():
             for val in value:
+                average['value'] += val
+                average['count'] += 1
                 if tempTypesOfDecisions.get(str(key) + "_sq") is None:
                     tempTypesOfDecisions[str(key) + "_sq"] = 1/(val ** 2)
                 else:
                     tempTypesOfDecisions[str(key) + "_sq"] += 1/(val ** 2)
 
+        typesOfDecisions['average'] = average['value'] / average['count']
+
         for key, value in tempTypesOfDecisions.items():
             typesOfDecisions[key] = value
-        
-    return
+
+        minDistances = {'minDistances': [], 'minDistance': None, 'minDistanceClass': None}
+
+        for key, value in typesOfDecisions.items():
+            if typesOfDecisions.get(str(key) + "_sq") is not None:
+                minDistances['minDistances'].append(abs(typesOfDecisions['average'] - typesOfDecisions[str(key) + "_sq"]))
+
+        minDistances['minDistance'] = min(minDistances['minDistances'])
+
+        for key, value in typesOfDecisions.items():
+            if typesOfDecisions.get(str(key) + "_sq") is not None:
+                if abs(typesOfDecisions['average'] - typesOfDecisions[str(key) + "_sq"]) == minDistances['minDistance']:
+                    minDistances['minDistanceClass'] = str(key)
+
+        if testRecord[KEY_ATTRIBUTE] == minDistances['minDistanceClass']:
+            return True
+        else:
+            return False
 
 
 def extractTypesIfDecisions(records, metric):
