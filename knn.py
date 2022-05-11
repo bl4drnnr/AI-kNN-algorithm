@@ -49,7 +49,6 @@ for testItem in TEST_DATA:
             EU['distanceSumElection'].append(1)
         else:
             EU['distanceSumElection'].append(0)
-        print('----------')
         # sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i])
         # if sumOfReciprocalEU:
         #     EU['sumOfReciprocal'].append(1)
