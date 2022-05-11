@@ -162,10 +162,18 @@ def extractTypesIfDecisions(records, metric):
     return typesOfDecisions
 
 
+def getMethodName(name):
+    return {
+        'normalElection': 'Normal elections',
+        'distanceSumElection': 'Summary distance elections',
+        'sumOfReciprocal': 'Summary of reciprocal'
+    }.get(name)
+
+
 def printResult(typeOfResult, data):
     print("Type of metric: " + typeOfResult)
     for item, value in data.items():
-        print('Election method: ' + item)
+        print('Election method: ' + getMethodName(item))
         t = []
         for x in value:
             t.append(x)
