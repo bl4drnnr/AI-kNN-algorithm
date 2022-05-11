@@ -174,12 +174,12 @@ def printResult(typeOfResult, data):
     print("Type of metric: " + typeOfResult)
     for item, value in data.items():
         print("Election method: " + getMethodName(item))
-        print("")
+        print("n = 1\t\tn = 3\t\tn = 5")
         t = []
         for x in value:
             t.append(x)
             if len(t) == 3:
-                print(t)
+                print("{}\t\t\t{}\t\t\t{}".format(t[0], t[1], t[2]))
                 t = []
         print("---------------")
     print("###############################")
