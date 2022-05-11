@@ -117,11 +117,11 @@ def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord, metric):
         return True
     else:
         tempTypesOfDecisions = {}
-        average = 0
+        sumOfAll = 0
 
         for key, value in typesOfDecisions.items():
             for val in value:
-                average += 1/(val ** 2)
+                sumOfAll += 1/(val ** 2)
                 if tempTypesOfDecisions.get(str(key) + "_sq") is None:
                     tempTypesOfDecisions[str(key) + "_sq"] = 1/(val ** 2)
                 else:
@@ -130,19 +130,19 @@ def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord, metric):
         for key, value in tempTypesOfDecisions.items():
             typesOfDecisions[key] = value
 
-        typesOfDecisions['average'] = average
+        typesOfDecisions['sumOfAll'] = sumOfAll
 
         minDistances = {'minDistances': [], 'minDistance': None, 'minDistanceClass': None}
 
         for key, value in typesOfDecisions.items():
             if typesOfDecisions.get(str(key) + "_sq") is not None:
-                minDistances['minDistances'].append(abs(typesOfDecisions['average'] - typesOfDecisions[str(key) + "_sq"]))
+                minDistances['minDistances'].append(abs(typesOfDecisions['sumOfAll'] - typesOfDecisions[str(key) + "_sq"]))
 
         minDistances['minDistance'] = min(minDistances['minDistances'])
 
         for key, value in typesOfDecisions.items():
             if typesOfDecisions.get(str(key) + "_sq") is not None:
-                if abs(typesOfDecisions['average'] - typesOfDecisions[str(key) + "_sq"]) == minDistances['minDistance']:
+                if abs(typesOfDecisions['sumOfAll'] - typesOfDecisions[str(key) + "_sq"]) == minDistances['minDistance']:
                     minDistances['minDistanceClass'] = str(key)
 
         if testRecord[KEY_ATTRIBUTE] == minDistances['minDistanceClass']:
