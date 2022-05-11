@@ -66,17 +66,17 @@ def normalElection(records, testRecord):
             return False
 
 
-def distanceSumElection(records, testRecord):
+def distanceSumElection(records, testRecord, metric):
     typesOfDecisions = {}
 
     for record in records:
         if typesOfDecisions.get(record[KEY_ATTRIBUTE]) is None:
-            typesOfDecisions[record[KEY_ATTRIBUTE]] = [float(record['CB'])]
+            typesOfDecisions[record[KEY_ATTRIBUTE]] = [float(record[metric])]
         else:
-            typesOfDecisions[record[KEY_ATTRIBUTE]].append(float(record['CB']))
-
-    # for key, value in typesOfDecisions.items():
-    #     print(key, value)
+            typesOfDecisions[record[KEY_ATTRIBUTE]].append(float(record[metric]))
+    print(typesOfDecisions)
+    if len(list(typesOfDecisions)) == 1:
+        return True
     return
 
 

@@ -44,11 +44,12 @@ for testItem in TEST_DATA:
             EU['normalElection'].append(1)
         else:
             EU['normalElection'].append(0)
-        distanceSumElectionEU = distanceSumElection(sortedEU[:i], testItem)
+        distanceSumElectionEU = distanceSumElection(sortedEU[:i], testItem, 'EU')
         if distanceSumElectionEU:
             EU['distanceSumElection'].append(1)
         else:
             EU['distanceSumElection'].append(0)
+        print('----------')
         # sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i])
         # if sumOfReciprocalEU:
         #     EU['sumOfReciprocal'].append(1)
@@ -60,7 +61,7 @@ for testItem in TEST_DATA:
             CB['normalElection'].append(1)
         else:
             CB['normalElection'].append(0)
-        distanceSumElectionCB = distanceSumElection(sortedCB[:i], testItem)
+        distanceSumElectionCB = distanceSumElection(sortedCB[:i], testItem, 'CB')
         if distanceSumElectionCB:
             CB['distanceSumElection'].append(1)
         else:
@@ -76,7 +77,7 @@ for testItem in TEST_DATA:
             M3['normalElection'].append(1)
         else:
             M3['normalElection'].append(0)
-        distanceSumElectionM3 = distanceSumElection(sortedM3[:i], testItem)
+        distanceSumElectionM3 = distanceSumElection(sortedM3[:i], testItem, 'M3')
         if distanceSumElectionM3:
             M3['distanceSumElection'].append(1)
         else:
