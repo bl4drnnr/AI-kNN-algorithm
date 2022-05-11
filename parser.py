@@ -1,11 +1,11 @@
 import json
 
-learn = open('learn.json')
-test = open('test.json')
+learn = open("learn.json")
+test = open("test.json")
 TEST_DATA = json.load(test)
-TEST_DATA = TEST_DATA['inputdata']
+TEST_DATA = TEST_DATA["inputdata"]
 LEARN_DATA = json.load(learn)
-LEARN_DATA = LEARN_DATA['inputdata']
+LEARN_DATA = LEARN_DATA["inputdata"]
 ALL_POSSIBLE_ATTRIBUTES = {}
 
 
