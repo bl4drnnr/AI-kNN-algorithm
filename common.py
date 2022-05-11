@@ -166,7 +166,7 @@ def getMethodName(name):
     return {
         "normalElection": "Normal elections",
         "distanceSumElection": "Summary distance elections",
-        "sumOfReciprocal": "Summary of reciprocal"
+        "sumOfReciprocal": "Summary of reciprocal squares"
     }.get(name)
 
 
