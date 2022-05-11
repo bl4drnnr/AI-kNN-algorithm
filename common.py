@@ -74,9 +74,20 @@ def distanceSumElection(records, testRecord, metric):
             typesOfDecisions[record[KEY_ATTRIBUTE]] = [float(record[metric])]
         else:
             typesOfDecisions[record[KEY_ATTRIBUTE]].append(float(record[metric]))
-    print(typesOfDecisions)
+
     if len(list(typesOfDecisions)) == 1:
         return True
+    else:
+        # Look for average value
+        tempTypesOfDecisions = {}
+        for key, value in typesOfDecisions.items():
+            for val in value:
+                if tempTypesOfDecisions.get(str(key) + "_aver") is None:
+                    tempTypesOfDecisions[str(key) + "_aver"] = val
+                else:
+                    tempTypesOfDecisions[str(key) + "_aver"] += val
+        print(typesOfDecisions)
+        print(tempTypesOfDecisions)
     return
 
 
