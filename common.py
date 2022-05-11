@@ -42,8 +42,7 @@ def normalElection(records, testRecord):
         results.append(record[KEY_ATTRIBUTE])
 
     resultsSet = set(results)
-
-    if len(resultsSet) == 1:
+    if len(resultsSet) == 1 and testRecord[KEY_ATTRIBUTE] == records[0][KEY_ATTRIBUTE]:
         return True
     else:
         decisionClasses = {}
@@ -70,7 +69,7 @@ def normalElection(records, testRecord):
 def distanceSumElection(records, testRecord, metric):
     typesOfDecisions = extractTypesIfDecisions(records, metric)
 
-    if len(list(typesOfDecisions)) == 1:
+    if len(list(typesOfDecisions)) == 1 and testRecord[KEY_ATTRIBUTE] == records[0][KEY_ATTRIBUTE]:
         return True
     else:
         # Look for average value
@@ -113,7 +112,7 @@ def distanceSumElection(records, testRecord, metric):
 def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord, metric):
     typesOfDecisions = extractTypesIfDecisions(records, metric)
 
-    if len(list(typesOfDecisions)) == 1:
+    if len(list(typesOfDecisions)) == 1 and testRecord[KEY_ATTRIBUTE] == records[0][KEY_ATTRIBUTE]:
         return True
     else:
         tempTypesOfDecisions = {}
