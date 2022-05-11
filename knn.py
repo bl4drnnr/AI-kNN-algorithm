@@ -1,5 +1,4 @@
-from common import CityBlock, Euklid, Minkowski, printResult, normalElection, distanceSumElection, \
-    sumOfReciprocalOfTheSquaresOfDistances
+from common import CityBlock, Euklid, Minkowski, printResult, normalElection, distanceSumElection, sumOfReciprocalOfTheSquaresOfDistances
 from parser import getLearnData, getTestData, getKeyAttribute
 
 LEARN_DATA = getLearnData()
@@ -7,22 +6,23 @@ TEST_DATA = getTestData()
 DATA_WITH_METRICS = []
 KEY_ATTRIBUTE = getKeyAttribute()
 
-EU = {
-    'normalElection': [],
-    'distanceSumElection': [],
-    'sumOfReciprocal': [],
+RESULT = {
+    'EU': {
+        'normalElection': [],
+        'distanceSumElection': [],
+        'sumOfReciprocal': [],
+    },
+    'CB': {
+        'normalElection': [],
+        'distanceSumElection': [],
+        'sumOfReciprocal': [],
+    },
+    'M3': {
+        'normalElection': [],
+        'distanceSumElection': [],
+        'sumOfReciprocal': [],
+    }
 }
-CB = {
-    'normalElection': [],
-    'distanceSumElection': [],
-    'sumOfReciprocal': [],
-}
-M3 = {
-    'normalElection': [],
-    'distanceSumElection': [],
-    'sumOfReciprocal': [],
-}
-
 
 for testItem in TEST_DATA:
     for learnItem in LEARN_DATA:
@@ -36,58 +36,34 @@ for testItem in TEST_DATA:
     sortedEU = sorted(DATA_WITH_METRICS, key=lambda x: x['EU'], reverse=False)
     sortedCB = sorted(DATA_WITH_METRICS, key=lambda y: y['CB'], reverse=False)
     sortedM3 = sorted(DATA_WITH_METRICS, key=lambda z: z['M3'], reverse=False)
+    sortedMetrics = [{'type': 'EU', 'records': sortedEU}, {'type': 'CB', 'records': sortedCB}, {'type': 'M3', 'records': sortedM3}]
     # Get 1/3/5 from top
     for i in range(1, 6, 2):
-        normalElectionEU = normalElection(sortedEU[:i], testItem)
-        if normalElectionEU:
-            EU['normalElection'].append(1)
-        else:
-            EU['normalElection'].append(0)
-        distanceSumElectionEU = distanceSumElection(sortedEU[:i], testItem, 'EU')
-        if distanceSumElectionEU:
-            EU['distanceSumElection'].append(1)
-        else:
-            EU['distanceSumElection'].append(0)
-        sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i], testItem, 'EU')
-        if sumOfReciprocalEU:
-            EU['sumOfReciprocal'].append(1)
-        else:
-            EU['sumOfReciprocal'].append(0)
+        for metric in sortedMetrics:
+            normalElectionRes = normalElection(metric['records'][:i], testItem)
 
-        normalElectionCB = normalElection(sortedCB[:i], testItem)
-        if normalElectionCB:
-            CB['normalElection'].append(1)
-        else:
-            CB['normalElection'].append(0)
-        distanceSumElectionCB = distanceSumElection(sortedCB[:i], testItem, 'CB')
-        if distanceSumElectionCB:
-            CB['distanceSumElection'].append(1)
-        else:
-            CB['distanceSumElection'].append(0)
-        sumOfReciprocalCB = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i], testItem, 'CB')
-        if sumOfReciprocalCB:
-            CB['sumOfReciprocal'].append(1)
-        else:
-            CB['sumOfReciprocal'].append(0)
+            if normalElectionRes:
+                RESULT[metric['type']]['normalElection'].append(1)
+            else:
+                RESULT[metric['type']]['normalElection'].append(0)
 
-        normalElectionM3 = normalElection(sortedM3[:i], testItem)
-        if normalElectionM3:
-            M3['normalElection'].append(1)
-        else:
-            M3['normalElection'].append(0)
-        distanceSumElectionM3 = distanceSumElection(sortedM3[:i], testItem, 'M3')
-        if distanceSumElectionM3:
-            M3['distanceSumElection'].append(1)
-        else:
-            M3['distanceSumElection'].append(0)
-        normalElectionM3 = sumOfReciprocalOfTheSquaresOfDistances(sortedM3[:i], testItem, 'M3')
-        if normalElectionM3:
-            M3['sumOfReciprocal'].append(1)
-        else:
-            M3['sumOfReciprocal'].append(0)
+            distanceSumElectionRes = distanceSumElection(metric['records'][:i], testItem, metric['type'])
+
+            if distanceSumElectionRes:
+                RESULT[metric['type']]['distanceSumElection'].append(1)
+            else:
+                RESULT[metric['type']]['distanceSumElection'].append(0)
+
+            sumOfReciprocalRes = sumOfReciprocalOfTheSquaresOfDistances(metric['records'][:i], testItem, metric['type'])
+
+            if sumOfReciprocalRes:
+                RESULT[metric['type']]['sumOfReciprocal'].append(1)
+            else:
+                RESULT[metric['type']]['sumOfReciprocal'].append(0)
+
     DATA_WITH_METRICS = []
 
 
-printResult('Euklid', EU)
-printResult('City block', CB)
-printResult('Minkowski', M3)
+printResult('Euklid', RESULT['EU'])
+printResult('City block', RESULT['CB'])
+printResult('Minkowski', RESULT['M3'])
