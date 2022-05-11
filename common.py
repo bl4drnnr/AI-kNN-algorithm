@@ -96,8 +96,15 @@ def distanceSumElection(records, testRecord, metric):
         for key, value in tempTypesOfDecisions.items():
             typesOfDecisions[key] = value
 
+        minDistance = 0
+        for key, value in typesOfDecisions.items():
+            if typesOfDecisions.get(str(key) + "_aver") is not None:
+                print(typesOfDecisions['average'] - typesOfDecisions[str(key) + "_aver"])
+                if minDistance > abs(typesOfDecisions['average'] - typesOfDecisions[str(key) + "_aver"]):
+                    minDistance = format(abs(typesOfDecisions['average'] - typesOfDecisions[str(key) + "_aver"]), ".3f")
+        typesOfDecisions['minDistance'] = minDistance
         print(typesOfDecisions)
-    return
+    return False
 
 
 def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord):
