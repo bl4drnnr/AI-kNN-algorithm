@@ -49,11 +49,11 @@ for testItem in TEST_DATA:
             EU['distanceSumElection'].append(1)
         else:
             EU['distanceSumElection'].append(0)
-        # sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i])
-        # if sumOfReciprocalEU:
-        #     EU['sumOfReciprocal'].append(1)
-        # else:
-        #     EU['sumOfReciprocal'].append(0)
+        sumOfReciprocalEU = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i], testItem, 'EU')
+        if sumOfReciprocalEU:
+            EU['sumOfReciprocal'].append(1)
+        else:
+            EU['sumOfReciprocal'].append(0)
 
         normalElectionCB = normalElection(sortedCB[:i], testItem)
         if normalElectionCB:
@@ -65,11 +65,11 @@ for testItem in TEST_DATA:
             CB['distanceSumElection'].append(1)
         else:
             CB['distanceSumElection'].append(0)
-        # sumOfReciprocalCB = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i])
-        # if sumOfReciprocalCB:
-        #     CB['sumOfReciprocal'].append(1)
-        # else:
-        #     CB['sumOfReciprocal'].append(0)
+        sumOfReciprocalCB = sumOfReciprocalOfTheSquaresOfDistances(sortedEU[:i], testItem, 'CB')
+        if sumOfReciprocalCB:
+            CB['sumOfReciprocal'].append(1)
+        else:
+            CB['sumOfReciprocal'].append(0)
 
         normalElectionM3 = normalElection(sortedM3[:i], testItem)
         if normalElectionM3:
@@ -81,11 +81,11 @@ for testItem in TEST_DATA:
             M3['distanceSumElection'].append(1)
         else:
             M3['distanceSumElection'].append(0)
-        # normalElectionM3 = sumOfReciprocalOfTheSquaresOfDistances(sortedM3[:i])
-        # if normalElectionM3:
-        #     M3['sumOfReciprocal'].append(1)
-        # else:
-        #     M3['sumOfReciprocal'].append(0)
+        normalElectionM3 = sumOfReciprocalOfTheSquaresOfDistances(sortedM3[:i], testItem, 'M3')
+        if normalElectionM3:
+            M3['sumOfReciprocal'].append(1)
+        else:
+            M3['sumOfReciprocal'].append(0)
     DATA_WITH_METRICS = []
 
 

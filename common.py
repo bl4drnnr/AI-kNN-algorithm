@@ -115,7 +115,7 @@ def distanceSumElection(records, testRecord, metric):
             return False
 
 
-def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord):
+def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord, metric):
     return
 
 
