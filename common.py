@@ -113,8 +113,14 @@ def distanceSumElection(records, testRecord, metric):
 def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord, metric):
     typesOfDecisions = extractTypesIfDecisions(records, metric)
 
-    # print(typesOfDecisions)
-    # print('----')
+    if len(list(typesOfDecisions)) == 1:
+        return True
+    else:
+        tempTypesOfDecisions = {}
+
+        for key, value in typesOfDecisions.items():
+            for val in value:
+        print('----')
     return
 
 
