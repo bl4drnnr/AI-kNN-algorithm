@@ -1,6 +1,7 @@
 from parser import getQuantityOfDecisionClasses, getKeyAttribute
 
 KEY_ATTRIBUTE = getKeyAttribute()
+TYPES_OF_METRICS = ['EU', 'CB', 'M3']
 
 
 def Euklid(learnCase, testCase):
@@ -67,13 +68,7 @@ def normalElection(records, testRecord):
 
 
 def distanceSumElection(records, testRecord, metric):
-    typesOfDecisions = {}
-
-    for record in records:
-        if typesOfDecisions.get(record[KEY_ATTRIBUTE]) is None:
-            typesOfDecisions[record[KEY_ATTRIBUTE]] = [float(record[metric])]
-        else:
-            typesOfDecisions[record[KEY_ATTRIBUTE]].append(float(record[metric]))
+    typesOfDecisions = extractTypesIfDecisions(records, metric)
 
     if len(list(typesOfDecisions)) == 1:
         return True
@@ -116,7 +111,23 @@ def distanceSumElection(records, testRecord, metric):
 
 
 def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord, metric):
+    typesOfDecisions = extractTypesIfDecisions(records, metric)
+
+    # print(typesOfDecisions)
+    # print('----')
     return
+
+
+def extractTypesIfDecisions(records, metric):
+    typesOfDecisions = {}
+
+    for record in records:
+        if typesOfDecisions.get(record[KEY_ATTRIBUTE]) is None:
+            typesOfDecisions[record[KEY_ATTRIBUTE]] = [float(record[metric])]
+        else:
+            typesOfDecisions[record[KEY_ATTRIBUTE]].append(float(record[metric]))
+
+    return typesOfDecisions
 
 
 def printResult(typeOfResult, data):
