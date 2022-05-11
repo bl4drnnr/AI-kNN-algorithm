@@ -120,7 +120,14 @@ def sumOfReciprocalOfTheSquaresOfDistances(records, testRecord, metric):
 
         for key, value in typesOfDecisions.items():
             for val in value:
-        print('----')
+                if tempTypesOfDecisions.get(str(key) + "_sq") is None:
+                    tempTypesOfDecisions[str(key) + "_sq"] = 1/(val ** 2)
+                else:
+                    tempTypesOfDecisions[str(key) + "_sq"] += 1/(val ** 2)
+
+        for key, value in tempTypesOfDecisions.items():
+            typesOfDecisions[key] = value
+        
     return
 
 
