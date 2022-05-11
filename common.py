@@ -80,14 +80,23 @@ def distanceSumElection(records, testRecord, metric):
     else:
         # Look for average value
         tempTypesOfDecisions = {}
+        average = {'value': 0, 'count': 0}
+
         for key, value in typesOfDecisions.items():
             for val in value:
+                average['value'] += val
+                average['count'] += 1
                 if tempTypesOfDecisions.get(str(key) + "_aver") is None:
-                    tempTypesOfDecisions[str(key) + "_aver"] = val
+                    tempTypesOfDecisions[str(key) + "_aver"] = val/len(value)
                 else:
-                    tempTypesOfDecisions[str(key) + "_aver"] += val
+                    tempTypesOfDecisions[str(key) + "_aver"] += val/len(value)
+
+        typesOfDecisions['average'] = average['value'] / average['count']
+
+        for key, value in tempTypesOfDecisions.items():
+            typesOfDecisions[key] = value
+
         print(typesOfDecisions)
-        print(tempTypesOfDecisions)
     return
 
 
