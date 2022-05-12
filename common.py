@@ -173,16 +173,25 @@ def getMethodName(name):
 def printResult(typeOfResult, data):
     print("Type of metric: " + typeOfResult)
     for item, value in data.items():
-        n1err = []
-        n3err = []
-        n5err = []
+        errs = [[], [], []]
+        errOutput = ""
         print("Election method: " + getMethodName(item))
         print("n = 1\t\tn = 3\t\tn = 5")
         t = []
         for x in value:
             t.append(x)
             if len(t) == 3:
+                errs[0].append(t[0])
+                errs[1].append(t[1])
+                errs[2].append(t[2])
                 print("{}\t\t\t{}\t\t\t{}".format(t[0], t[1], t[2]))
                 t = []
+        for i in range(len(errs)):
+            q = 0
+            for val in errs[i]:
+                if val == 1:
+                    q += 1
+            errOutput += "{}\t\t\t".format((q/10) * 100)
+        print(errOutput)
         print("---------------")
     print("###############################")
