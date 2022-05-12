@@ -191,7 +191,7 @@ def printResult(typeOfResult, data):
             for val in errs[i]:
                 if val == 1:
                     q += 1
-            errOutput += "{}\t\t\t".format((q/10) * 100)
+            errOutput += "{}%\t\t\t".format((q/10) * 100)
         print(errOutput)
         print("---------------")
     print("###############################")
