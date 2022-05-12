@@ -173,6 +173,9 @@ def getMethodName(name):
 def printResult(typeOfResult, data):
     print("Type of metric: " + typeOfResult)
     for item, value in data.items():
+        n1err = []
+        n3err = []
+        n5err = []
         print("Election method: " + getMethodName(item))
         print("n = 1\t\tn = 3\t\tn = 5")
         t = []
